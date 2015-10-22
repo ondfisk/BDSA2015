@@ -1,0 +1,19 @@
+﻿Read the exceptions!
+
+Start Debugging: F5
+Start Without Debugging: CTRL+F5
+
+Step Over: F10
+Step Into: F11
+Continue: F5
+Stop debugging: SHIFT+F5
+
+Toggle Breakpoint: F9
+Disable Breakpoint: CTRL+F9
+
+Windows: 
+Watch
+Locals
+Autos
+Immediate
+Breakpoints

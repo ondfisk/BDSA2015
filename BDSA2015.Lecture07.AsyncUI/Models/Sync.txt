@@ -1,0 +1,40 @@
+﻿        
+		private void Calculate_OnClick(object sender, RoutedEventArgs e)
+        {
+            (sender as Button).IsEnabled = false;
+
+            var amount = double.Parse(DKK.Text);
+
+            var usd = GetRate("DKK", "USD");
+            USD.Content = (amount * usd).ToString("N2");
+
+            var gbp = GetRate("DKK", "GBP");
+            GBP.Content = (amount * gbp).ToString("N2");
+
+            var eur = GetRate("DKK", "EUR");
+            EUR.Content = (amount * eur).ToString("N2");
+
+            (sender as Button).IsEnabled = true;
+        }
+
+        private double GetRate(string from, string to)
+        {
+            Thread.Sleep(TimeSpan.FromSeconds(2));
+
+            using (var client = new WebClient())
+            {
+                var url = $"http://currency-api.appspot.com/api/{from}/{to}.json";
+
+                try
+                {
+                    var data = client.DownloadString(url);
+                    var json = JsonConvert.DeserializeObject<ExchangeRate>(data);
+
+                    return json.Rate;
+                }
+                catch
+                {
+                    return double.NaN;
+                }
+            }
+        }

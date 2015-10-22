@@ -1,0 +1,23 @@
+﻿Agenda
+
+Language INtegrated Query (Linq)
+- from
+- select
+- where
+- group by
+- let
+- Lazy loading
+- Anonymous types
+Delegates
+- Action
+- Func
+Lambda Expressions
+Extension Methods
+- Built in:
+  - ToList
+  - Where
+  - Select
+  - OrderBy, ThenBy
+  - Distinct
+  - Count / Sum / Average / Min / Max
+- Custom

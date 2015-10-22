@@ -1,0 +1,41 @@
+﻿
+        private async void Calculate_OnClick(object sender, RoutedEventArgs e)
+        {
+            (sender as Button).IsEnabled = false;
+
+            var amount = double.Parse(DKK.Text);
+
+            var usd = await GetRate("DKK", "USD");
+            USD.Content = (amount * usd).ToString("N2");
+
+            var gbp = await GetRate("DKK", "GBP");
+            GBP.Content = (amount * gbp).ToString("N2");
+
+            var eur = await GetRate("DKK", "EUR");
+            EUR.Content = (amount * eur).ToString("N2");
+
+            (sender as Button).IsEnabled = true;
+        }
+
+        private async Task<double> GetRate(string from, string to)
+        {
+            await Task.Delay(TimeSpan.FromSeconds(2));
+
+            using (var client = new HttpClient())
+            {
+                var url = $"http://currency-api.appspot.com/api/{from}/{to}.json";
+
+                try
+                {
+                    var data = await client.GetAsync(url);
+                    var json = await data.Content.ReadAsAsync<ExchangeRate>();
+
+                    return json.Rate;
+                }
+                catch
+                {
+                    return double.NaN;
+                }
+            }
+        }
+    
