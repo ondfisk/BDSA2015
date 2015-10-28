@@ -1,4 +1,4 @@
-﻿namespace BDSA2015.Universal.Model
+﻿namespace BDSA2015.Lecture08.Universal.Model
 {
     public class Album
     {

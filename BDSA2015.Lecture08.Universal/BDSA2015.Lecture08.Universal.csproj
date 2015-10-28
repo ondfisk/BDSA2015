@@ -113,7 +113,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="BDSA2015.Universal_TemporaryKey.pfx" />
+    <None Include="BDSA2015.Lecture08.Universal_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Covers\AltarsOfMadness.jpg" />

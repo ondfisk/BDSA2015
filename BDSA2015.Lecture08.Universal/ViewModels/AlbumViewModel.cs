@@ -1,7 +1,7 @@
-﻿using BDSA2015.Universal.Model;
+﻿using BDSA2015.Lecture08.Universal.Model;
 using System.Collections.ObjectModel;
 
-namespace BDSA2015.Universal.ViewModels
+namespace BDSA2015.Lecture08.Universal.ViewModels
 {
     public class AlbumViewModel : BaseViewModel
     {

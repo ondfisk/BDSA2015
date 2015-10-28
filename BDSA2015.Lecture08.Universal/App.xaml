@@ -1,8 +1,8 @@
 ﻿<Application
-    x:Class="BDSA2015.Universal.App"
+    x:Class="BDSA2015.Lecture08.Universal.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:BDSA2015.Universal"
+    xmlns:local="using:BDSA2015.Lecture08.Universal"
     RequestedTheme="Light">
 
 </Application>

@@ -1,7 +1,7 @@
 ﻿using System;
 using Windows.UI.Xaml.Data;
 
-namespace BDSA2015.Universal.Converters
+namespace BDSA2015.Lecture08.Universal.Converters
 {
     public sealed class StringFormatConverter : IValueConverter
     {

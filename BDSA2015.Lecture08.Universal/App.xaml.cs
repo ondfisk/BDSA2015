@@ -4,9 +4,9 @@ using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using BDSA2015.Universal.Views;
+using BDSA2015.Lecture08.Universal.Views;
 
-namespace BDSA2015.Universal
+namespace BDSA2015.Lecture08.Universal
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
