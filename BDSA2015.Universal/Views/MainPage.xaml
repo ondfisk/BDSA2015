@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="BDSA2015.Universal.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BDSA2015.Universal.Views"
+    xmlns:converters="using:BDSA2015.Universal.Converters" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:data="using:BDSA2015.Universal.Model">
+    <Page.Resources>
+        <converters:StringFormatConverter x:Key="StringFormatConverter" />
+        <SolidColorBrush x:Key="BackgroundColor" Color="Black" />
+        <SolidColorBrush x:Key="TextColor" Color="Red" />
+        <DataTemplate x:Name="AlbumListViewTemplate" x:DataType="data:Album">
+            <StackPanel Margin="20,10,20,10">
+                <TextBlock Text="{x:Bind Artist}" Foreground="{StaticResource TextColor}" />
+                <TextBlock Text="{x:Bind Title}" Foreground="{StaticResource TextColor}" />
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid Background="{StaticResource BackgroundColor}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="List" ItemsSource="{Binding Albums}" 
+                  ItemTemplate="{StaticResource AlbumListViewTemplate}"
+                  SelectionMode="Single"
+                  SelectionChanged="List_SelectionChanged"
+                  Grid.Column="0">
+        </ListView>
+        <StackPanel x:Name="Panel" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="{Binding SelectedAlbum.Artist}" HorizontalAlignment="Center" Foreground="{StaticResource TextColor}" />
+            <TextBlock Text="{Binding SelectedAlbum.Title}" HorizontalAlignment="Center" Foreground="{StaticResource TextColor}" />
+            <TextBlock Text="{Binding SelectedAlbum.Year, Converter={StaticResource StringFormatConverter}, ConverterParameter='({0})'}" HorizontalAlignment="Center" Foreground="{StaticResource TextColor}" />
+            <Image Source="{Binding SelectedAlbum.Cover}" Width="500" HorizontalAlignment="Center" Margin="0,20,0,0" />
+        </StackPanel>
+    </Grid>
+</Page>
