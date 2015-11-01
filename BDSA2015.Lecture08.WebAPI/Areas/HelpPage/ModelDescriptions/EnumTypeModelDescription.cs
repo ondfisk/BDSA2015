@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace BDSA2015.Lecture08.WebAPI.Areas.HelpPage.ModelDescriptions
+namespace BDSA2015.Lecture08.WebApi.Areas.HelpPage.ModelDescriptions
 {
     public class EnumTypeModelDescription : ModelDescription
     {

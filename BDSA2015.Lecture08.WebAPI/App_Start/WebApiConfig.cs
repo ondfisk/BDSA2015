@@ -1,16 +1,18 @@
-﻿using System;
+﻿using BDSA2015.Lecture08.WebApi.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Web.Http;
+using System.Web.OData.Builder;
+using System.Web.OData.Extensions;
 
-namespace BDSA2015.Lecture08.WebAPI
+namespace BDSA2015.Lecture08.WebApi
 {
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
-
             // Web API routes
             config.MapHttpAttributeRoutes();
 
@@ -19,6 +21,13 @@ namespace BDSA2015.Lecture08.WebAPI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            ODataModelBuilder builder = new ODataConventionModelBuilder();
+            builder.EntitySet<Customer>("Customer");
+            config.MapODataServiceRoute(
+                routeName: "ODataRoute",
+                routePrefix: "api",
+                model: builder.GetEdmModel());
         }
     }
 }

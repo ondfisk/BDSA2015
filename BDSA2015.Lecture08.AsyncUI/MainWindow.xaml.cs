@@ -7,6 +7,7 @@ using System.Net;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 using System.Net.Http;
+using BDSA2015.Lecture07.AsyncUI.ViewModels;
 
 namespace BDSA2015.Lecture08.AsyncUI
 {
@@ -15,49 +16,19 @@ namespace BDSA2015.Lecture08.AsyncUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly CurrencyViewModel _viewModel;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            _viewModel = new CurrencyViewModel();
+            DataContext = _viewModel;
         }
 
-        private async void Calculate_OnClick(object sender, RoutedEventArgs e)
+        private async void Calculate_Click(object sender, RoutedEventArgs e)
         {
-            (sender as Button).IsEnabled = false;
-
-            var amount = double.Parse(DKK.Text);
-
-            var usd = await GetRateAsync("DKK", "USD");
-            USD.Content = (amount * usd).ToString("N2");
-
-            var gbp = await GetRateAsync("DKK", "GBP");
-            GBP.Content = (amount * gbp).ToString("N2");
-
-            var eur = await GetRateAsync("DKK", "EUR");
-            EUR.Content = (amount * eur).ToString("N2");
-
-            (sender as Button).IsEnabled = true;
-        }
-
-        private async Task<double> GetRateAsync(string from, string to)
-        {
-            Thread.Sleep(TimeSpan.FromSeconds(2));
-
-            using (var client = new HttpClient())
-            {
-                var url = $"http://currency-api.appspot.com/api/{from}/{to}.json";
-
-                try
-                {
-                    var data = await client.GetAsync(url);
-                    var json = await data.Content.ReadAsAsync<ExchangeRate>();
-
-                    return json.Rate;
-                }
-                catch
-                {
-                    return double.NaN;
-                }
-            }
+            await _viewModel.Calculate();
         }
     }
 }

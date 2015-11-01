@@ -1,6 +1,6 @@
 using System;
 
-namespace BDSA2015.Lecture08.WebAPI.Areas.HelpPage
+namespace BDSA2015.Lecture08.WebApi.Areas.HelpPage
 {
     /// <summary>
     /// This represents an image sample on the help page. There's a display template named ImageSample associated with this class.

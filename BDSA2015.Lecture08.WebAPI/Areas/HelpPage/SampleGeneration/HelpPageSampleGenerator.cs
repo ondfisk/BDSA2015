@@ -13,7 +13,7 @@ using System.Web.Http.Description;
 using System.Xml.Linq;
 using Newtonsoft.Json;
 
-namespace BDSA2015.Lecture08.WebAPI.Areas.HelpPage
+namespace BDSA2015.Lecture08.WebApi.Areas.HelpPage
 {
     /// <summary>
     /// This class will generate the samples for the help page.

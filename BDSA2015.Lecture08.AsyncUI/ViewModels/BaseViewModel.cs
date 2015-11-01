@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace BDSA2015.Universal.ViewModels
+namespace BDSA2015.Lecture07.AsyncUI.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {

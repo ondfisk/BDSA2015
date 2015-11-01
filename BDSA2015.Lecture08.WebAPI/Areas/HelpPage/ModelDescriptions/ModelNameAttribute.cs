@@ -1,6 +1,6 @@
 using System;
 
-namespace BDSA2015.Lecture08.WebAPI.Areas.HelpPage.ModelDescriptions
+namespace BDSA2015.Lecture08.WebApi.Areas.HelpPage.ModelDescriptions
 {
     /// <summary>
     /// Use this attribute to change the name of the <see cref="ModelDescription"/> generated for a type.

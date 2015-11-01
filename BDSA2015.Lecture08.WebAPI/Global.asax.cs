@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace BDSA2015.Lecture08.WebAPI
+namespace BDSA2015.Lecture08.WebApi
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

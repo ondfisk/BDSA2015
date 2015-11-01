@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("BDSA2015.Lecture08.WebAPI")]
+[assembly: AssemblyTitle("BDSA2015.Lecture08.WebApi")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("BDSA2015.Lecture08.WebAPI")]
+[assembly: AssemblyProduct("BDSA2015.Lecture08.WebApi")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("7fa98fec-592a-4839-a24a-feb959f5d79f")]
+[assembly: Guid("65aa4eaf-b20d-4bef-8903-4d33624f174f")]
 
 // Version information for an assembly consists of the following four values:
 //

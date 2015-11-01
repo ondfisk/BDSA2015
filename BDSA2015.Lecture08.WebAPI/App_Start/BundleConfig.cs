@@ -1,7 +1,6 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
-namespace BDSA2015.Lecture08.WebAPI
+namespace BDSA2015.Lecture08.WebApi
 {
     public class BundleConfig
     {

@@ -11,7 +11,7 @@ using System.Web.Http.Description;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
 
-namespace BDSA2015.Lecture08.WebAPI.Areas.HelpPage.ModelDescriptions
+namespace BDSA2015.Lecture08.WebApi.Areas.HelpPage.ModelDescriptions
 {
     /// <summary>
     /// Generates model descriptions for given types.

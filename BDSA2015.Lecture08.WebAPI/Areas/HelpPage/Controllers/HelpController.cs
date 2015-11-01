@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using BDSA2015.Lecture08.WebAPI.Areas.HelpPage.ModelDescriptions;
-using BDSA2015.Lecture08.WebAPI.Areas.HelpPage.Models;
+using BDSA2015.Lecture08.WebApi.Areas.HelpPage.ModelDescriptions;
+using BDSA2015.Lecture08.WebApi.Areas.HelpPage.Models;
 
-namespace BDSA2015.Lecture08.WebAPI.Areas.HelpPage.Controllers
+namespace BDSA2015.Lecture08.WebApi.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.
