@@ -7,8 +7,8 @@
     <ProjectGuid>{A63CEC9B-3538-426D-8151-9443604F2AC9}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BDSA2015.Universal</RootNamespace>
-    <AssemblyName>BDSA2015.Universal</AssemblyName>
+    <RootNamespace>BDSA2015.Lecture08.Universal</RootNamespace>
+    <AssemblyName>BDSA2015.Lecture08.Universal</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
@@ -113,7 +113,6 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="BDSA2015.Lecture08.Universal_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Covers\AltarsOfMadness.jpg" />

@@ -24,12 +24,14 @@ namespace BDSA2015.Lecture09.WebApi.Api
 
         // GET: api/customers
         [EnableQuery]
+        [HttpGet]
         public IQueryable<CustomerDto> Get()
         {
             return _repository.Read();
         }
 
         // GET: api/customers/5
+        [HttpGet]
         [ResponseType(typeof(CustomerDto))]
         public async Task<IHttpActionResult> Get(int id)
         {
@@ -44,8 +46,9 @@ namespace BDSA2015.Lecture09.WebApi.Api
         }
 
         // PUT: api/customers/5
+        [HttpPut]
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutCustomer(int id, CustomerDto customer)
+        public async Task<IHttpActionResult> Put(int id, CustomerDto customer)
         {
             if (!ModelState.IsValid)
             {
@@ -68,6 +71,7 @@ namespace BDSA2015.Lecture09.WebApi.Api
         }
 
         // POST: api/customers
+        [HttpPost]
         [ResponseType(typeof(Customer))]
         public async Task<IHttpActionResult> Post(CustomerDto customer)
         {
@@ -76,13 +80,14 @@ namespace BDSA2015.Lecture09.WebApi.Api
                 return BadRequest(ModelState);
             }
 
-            var id = await _repository.Create(customer);
+            customer.Id = await _repository.Create(customer);
             
             return CreatedAtRoute("DefaultApi", new { id = customer.Id }, customer);
         }
 
         // DELETE: api/customers/5
-        [ResponseType(typeof(Customer))]
+        [HttpDelete]
+        [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> Delete(int id)
         {
             var deleted = await _repository.Delete(id);

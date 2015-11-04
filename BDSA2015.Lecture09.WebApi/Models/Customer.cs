@@ -1,6 +1,5 @@
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BDSA2015.Lecture09.WebApi.Models
 {
@@ -8,7 +7,6 @@ namespace BDSA2015.Lecture09.WebApi.Models
     {
         [Key]
         [Required]
-        [StringLength(5, MinimumLength =5)]
         public int Id { get; set; }
 
         [Required]

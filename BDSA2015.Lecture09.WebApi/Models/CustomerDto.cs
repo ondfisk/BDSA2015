@@ -6,8 +6,6 @@ namespace BDSA2015.Lecture09.WebApi.Models
     public class CustomerDto
     {
         [JsonProperty("id")]
-        [Required]
-        [StringLength(5, MinimumLength = 5)]
         public int Id { get; set; }
 
         [Display(Name = "Company Name")]

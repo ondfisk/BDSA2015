@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="BDSA2015.Lecture09.Universal.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BDSA2015.Lecture09.Universal.Views"
+    xmlns:models="using:BDSA2015.Lecture09.Universal.Models"
+    xmlns:viewModels="using:BDSA2015.Lecture09.Universal.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <GridView x:Name="CustomerGrid"
+                  ItemsSource="{Binding Customers}" 
+                  SelectionMode="Single"
+                  SelectionChanged="CustomerGrid_SelectionChanged">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="models:Customer">
+                    <StackPanel Margin="10" Width="200">
+                        <TextBlock Text="{x:Bind CompanyName}" Foreground="{ThemeResource ApplicationForegroundThemeBrush}" />
+                        <TextBlock Text="{x:Bind ContactName}" Foreground="{ThemeResource ApplicationForegroundThemeBrush}" />
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+    </Grid>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Icon="Add" Content="Add" Command="{x:Bind Add}" />
+            <AppBarButton Icon="Edit" Content="Edit" Command="{x:Bind Edit}" />
+            <AppBarButton Icon="Delete" Content="Delete" Command="{x:Bind Delete}" />
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>
