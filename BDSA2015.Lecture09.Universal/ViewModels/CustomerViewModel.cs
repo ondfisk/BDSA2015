@@ -1,5 +1,7 @@
 ﻿using BDSA2015.Lecture09.Universal.Models;
 using System;
+using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 
 namespace BDSA2015.Lecture09.Universal.ViewModels
 {
@@ -73,26 +75,30 @@ namespace BDSA2015.Lecture09.Universal.ViewModels
         public CustomerViewModel()
         {
             _repository = new CustomerRepository();
-
-            Save = new RelayCommand(async _ =>
-            {
-                if (Id != 0)
-                {
-                    await _repository.Update(Customer);
-                }
-                else
-                {
-                    Customer = await _repository.Create(Customer);
-                }
-            }, _ => !string.IsNullOrWhiteSpace(CompanyName));
         }
 
         public async void Initialize(Customer customer)
         {
-            Customer = customer;
+            await Task.FromResult(Customer = customer);
         }
 
-        public RelayCommand Save { get; private set; }
+        public RelayCommand Save
+        {
+            get
+            {
+                return new RelayCommand(async _ =>
+                {
+                    if (Id != 0)
+                    {
+                        await _repository.Update(Customer);
+                    }
+                    else
+                    {
+                        Customer = await _repository.Create(Customer);
+                    }
+                }, _ => !string.IsNullOrWhiteSpace(CompanyName));
+            }
+        }
 
         public void Dispose()
         {

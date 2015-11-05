@@ -5,11 +5,13 @@
     xmlns:local="using:BDSA2015.Lecture09.Universal.Views"
     xmlns:models="using:BDSA2015.Lecture09.Universal.Models"
     xmlns:viewModels="using:BDSA2015.Lecture09.Universal.ViewModels"
+    xmlns:design="using:BDSA2015.Lecture09.Universal.ViewModels.DesignTime"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignInstance design:CustomersDesignTimeViewModel, IsDesignTimeCreatable=True}">
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <GridView x:Name="CustomerGrid"
+        <GridView x:Name="customerGrid" 
                   ItemsSource="{Binding Customers}" 
                   SelectionMode="Single"
                   SelectionChanged="CustomerGrid_SelectionChanged">
@@ -25,6 +27,7 @@
     </Grid>
     <Page.BottomAppBar>
         <CommandBar>
+            <AppBarButton Icon="Refresh" Content="Refresh" Command="{Binding Refresh}" />
             <AppBarButton Icon="Add" Content="Add" Command="{x:Bind Add}" />
             <AppBarButton Icon="Edit" Content="Edit" Command="{x:Bind Edit}" />
             <AppBarButton Icon="Delete" Content="Delete" Command="{x:Bind Delete}" />

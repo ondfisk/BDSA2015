@@ -2,6 +2,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace BDSA2015.Lecture09.Universal.ViewModels
 {
@@ -14,12 +15,28 @@ namespace BDSA2015.Lecture09.Universal.ViewModels
             _repository = new CustomerRepository();
 
             Customers = new ObservableCollection<Customer>();
+
+            Refresh = new RelayCommand(c => Initialize());
         }
 
         public ObservableCollection<Customer> Customers { get; private set; }
 
+        private Customer _selectedCustomer;
+
+        public Customer SelectedCustomer
+        {
+            get { return _selectedCustomer; }
+            set
+            {
+                _selectedCustomer = value;
+                OnPropertyChanged();
+            }
+        }
+
         public async void Initialize()
         {
+            Customers.Clear();
+
             var customers = await _repository.Read();
 
             foreach (var customer in customers)
@@ -27,6 +44,8 @@ namespace BDSA2015.Lecture09.Universal.ViewModels
                 Customers.Add(customer);
             }
         }
+
+        public ICommand Refresh { get; private set; }
 
         public void Dispose()
         {

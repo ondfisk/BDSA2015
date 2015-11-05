@@ -97,6 +97,8 @@
     </Compile>
     <Compile Include="Models\RelayCommand.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\DesignTime\CustomerDesignTimeViewModel.cs" />
+    <Compile Include="ViewModels\DesignTime\CustomersDesignTimeViewModel.cs" />
     <Compile Include="Views\AddPage.xaml.cs">
       <DependentUpon>AddPage.xaml</DependentUpon>
     </Compile>

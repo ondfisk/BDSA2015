@@ -21,21 +21,23 @@ namespace BDSA2015.Lecture09.Universal.Views
         public MainPage()
         {
             _viewModel = new CustomersViewModel();
+            _viewModel.Initialize();
+            
             DataContext = _viewModel;
 
             Add = new RelayCommand(c => Frame.Navigate(typeof(AddPage)));
             Edit = new RelayCommand(c =>
             {
-                var customer = CustomerGrid.SelectedItem as Customer;
+                var customer = customerGrid.SelectedItem as Customer;
                 Frame.Navigate(typeof(EditPage), customer);
-            }, c => CustomerGrid.SelectedIndex != -1);
+            }, c => customerGrid.SelectedIndex != -1);
             Delete = new RelayCommand(async c => {
-                var customer = CustomerGrid.SelectedItem as Customer;
+                var customer = customerGrid.SelectedItem as Customer;
                 if (await Confirm($"Are you sure you want to delete the customer{Environment.NewLine}\"{customer.CompanyName}\"?"))
                 {
                     await _viewModel.Delete(customer);
                 }
-            }, c => CustomerGrid.SelectedIndex != -1);
+            }, c => customerGrid.SelectedIndex != -1);
 
             this.InitializeComponent();
         }
@@ -44,7 +46,7 @@ namespace BDSA2015.Lecture09.Universal.Views
         {
             base.OnNavigatedTo(e);
 
-            _viewModel.Initialize();
+            _viewModel.SelectedCustomer = e.Parameter as Customer;
         }
 
         public ICommand Add { get; private set; }
@@ -53,6 +55,8 @@ namespace BDSA2015.Lecture09.Universal.Views
 
         private void CustomerGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            _viewModel.SelectedCustomer = customerGrid.SelectedItem as Customer;
+            
             Edit.OnCanExecuteChanged(sender);
             Delete.OnCanExecuteChanged(sender);
         }
