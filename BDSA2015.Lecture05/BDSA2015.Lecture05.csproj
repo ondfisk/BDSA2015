@@ -56,6 +56,7 @@
     <Compile Include="CharacterDto.cs" />
     <Compile Include="CrudAdapter.cs" />
     <Compile Include="CsvRepository.cs" />
+    <Compile Include="AsyncRepository.cs" />
     <Compile Include="EntityRepository.cs" />
     <Compile Include="ICharacterRepository.cs" />
     <Compile Include="Mapper.cs" />

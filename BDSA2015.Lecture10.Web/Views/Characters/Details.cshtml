@@ -1,0 +1,57 @@
+﻿@model BDSA2015.Lecture10.Models.CharacterDto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Character</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PublisherName)
+        </dt>
+
+        <dd>
+            @Html.ActionLink(Model.PublisherName, "Details", "Publishers", new { id = Model.PublisherId }, null)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GivenName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GivenName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlterEgo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlterEgo)
+        </dd>
+
+        <dt>
+            Image
+        </dt>
+
+        <dd>
+            <img alt="Character Portrait" src="@Url.Action("Image", new { id = Model.Id })" />
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

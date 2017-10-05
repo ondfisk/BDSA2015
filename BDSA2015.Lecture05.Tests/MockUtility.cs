@@ -5,6 +5,8 @@ using System.Linq;
 using Moq;
 using System.Reflection;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
+using System.Data.Entity.Infrastructure;
 
 namespace BDSA2015.Lecture05.Tests
 {
@@ -20,9 +22,18 @@ namespace BDSA2015.Lecture05.Tests
             set.As<IQueryable<T>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
 
             set.Setup(m => m.Find(It.IsAny<object[]>())).Returns<object[]>(ids => items.FirstOrDefault(d => key(d) == (int)ids[0]));
+            set.Setup(m => m.FindAsync(It.IsAny<object[]>())).Returns<object[]>(async ids => await Task.FromResult(items.FirstOrDefault(d => key(d) == (int)ids[0])));
 
             set.Setup(m => m.Add(It.IsAny<T>())).Callback<T>(a => items.Add(a));
             set.Setup(m => m.Remove(It.IsAny<T>())).Callback<T>(a => items.Remove(a));
+
+            set.As<IDbAsyncEnumerable<T>>()
+                .Setup(m => m.GetAsyncEnumerator())
+                .Returns(new TestDbAsyncEnumerator<T>(data.GetEnumerator()));
+
+            set.As<IQueryable<T>>()
+                .Setup(m => m.Provider)
+                .Returns(new TestDbAsyncQueryProvider<T>(data.Provider));
 
             return set;
         }
