@@ -29,6 +29,7 @@
         <CommandBar>
             <AppBarButton Icon="Refresh" Content="Refresh" Command="{Binding Refresh}" />
             <AppBarButton Icon="Add" Content="Add" Command="{x:Bind Add}" />
+            <AppBarButton Icon="AddFriend" Content="Add" Click="AppBarButton_Click" />
             <AppBarButton Icon="Edit" Content="Edit" Command="{x:Bind Edit}" />
             <AppBarButton Icon="Delete" Content="Delete" Command="{x:Bind Delete}" />
         </CommandBar>

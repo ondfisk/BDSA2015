@@ -63,7 +63,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="TestDbAsyncEnumerable.cs" />
+    <Compile Include="TestDbAsyncEnumerator.cs" />
+    <Compile Include="TestDbAsyncQueryProvider.cs" />
     <Compile Include="CsvRepositoryTests.cs" />
+    <Compile Include="AsyncRepositoryTests.cs" />
     <Compile Include="EntityRepositoryTests.cs" />
     <Compile Include="MapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

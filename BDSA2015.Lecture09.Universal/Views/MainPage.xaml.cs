@@ -70,5 +70,10 @@ namespace BDSA2015.Lecture09.Universal.Views
 
             return (bool)op.Id;
         }
+
+        private void AppBarButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            _viewModel.Customers.Add(new Customer { CompanyName = "My new fried" });
+        }
     }
 }
