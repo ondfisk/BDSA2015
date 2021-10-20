@@ -10,14 +10,14 @@ namespace BDSA2015.Lecture10.Web.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-    using Entities;
-    using Lecture10.Models;
+    using Ninject.Web.Common.WebHost;
+
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
         /// <summary>
-        /// Starts the application
+        /// Starts the application.
         /// </summary>
         public static void Start() 
         {
@@ -25,7 +25,7 @@ namespace BDSA2015.Lecture10.Web.App_Start
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
         }
-        
+
         /// <summary>
         /// Stops the application.
         /// </summary>
@@ -33,7 +33,7 @@ namespace BDSA2015.Lecture10.Web.App_Start
         {
             bootstrapper.ShutDown();
         }
-        
+
         /// <summary>
         /// Creates the kernel that will manage your application.
         /// </summary>
@@ -45,7 +45,6 @@ namespace BDSA2015.Lecture10.Web.App_Start
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
-
                 RegisterServices(kernel);
                 return kernel;
             }
@@ -62,9 +61,6 @@ namespace BDSA2015.Lecture10.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<ICharacterContext, CharacterContext>();
-            kernel.Bind<ICharacterRepository, CharacterRepository>();
-            kernel.Bind<IPublisherRepository, PublisherRepository>();
-        }        
+        }
     }
 }
