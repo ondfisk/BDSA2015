@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using BDSA2015.Lecture09.WebApi.Models;
-using System.Web.OData;
 
 namespace BDSA2015.Lecture09.WebApi.Api
 {
@@ -23,7 +22,6 @@ namespace BDSA2015.Lecture09.WebApi.Api
         }
 
         // GET: api/customers
-        [EnableQuery]
         [HttpGet]
         public IQueryable<CustomerDto> Get()
         {

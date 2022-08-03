@@ -1,11 +1,5 @@
 ﻿using BDSA2015.Lecture09.WebApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
 using System.Web.Http;
-using System.Web.OData.Builder;
-using System.Web.OData.Extensions;
 
 namespace BDSA2015.Lecture09.WebApi
 {
@@ -22,12 +16,12 @@ namespace BDSA2015.Lecture09.WebApi
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            ODataModelBuilder builder = new ODataConventionModelBuilder();
-            builder.EntitySet<Customer>("Customer");
-            config.MapODataServiceRoute(
-                routeName: "ODataRoute",
-                routePrefix: "api",
-                model: builder.GetEdmModel());
+            //ODataModelBuilder builder = new ODataConventionModelBuilder();
+            //builder.EntitySet<Customer>("Customer");
+            //config.MapODataServiceRoute(
+            //    routeName: "ODataRoute",
+            //    routePrefix: "api",
+            //    model: builder.GetEdmModel());
         }
     }
 }

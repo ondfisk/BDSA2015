@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using CsvHelper;
@@ -24,7 +25,7 @@ namespace BDSA2015.Lecture05.DAL
             var characters = Read();
 
             using (var stream = new StreamWriter(_file))
-            using (var writer = new CsvWriter(stream))
+            using (var writer = new CsvWriter(stream, CultureInfo.CurrentCulture))
             {
                 var id = 0;
                 writer.WriteHeader<Character>();
@@ -58,7 +59,7 @@ namespace BDSA2015.Lecture05.DAL
         public Character[] Read()
         {
             using (var stream = new StreamReader(_file))
-            using (var reader = new CsvReader(stream))
+            using (var reader = new CsvReader(stream, CultureInfo.CurrentCulture))
             {
                 return reader.GetRecords<Character>().OrderBy(c => c.ID).ToArray();
             }
@@ -69,7 +70,7 @@ namespace BDSA2015.Lecture05.DAL
             var characters = Read();
 
             using (var stream = new StreamWriter(_file))
-            using (var writer = new CsvWriter(stream))
+            using (var writer = new CsvWriter(stream, CultureInfo.CurrentCulture))
             {
                 writer.WriteHeader<Character>();
                 foreach (var c in characters)
@@ -91,7 +92,7 @@ namespace BDSA2015.Lecture05.DAL
             var characters = Read();
 
             using (var stream = new StreamWriter(_file))
-            using (var writer = new CsvWriter(stream))
+            using (var writer = new CsvWriter(stream, CultureInfo.CurrentCulture))
             {
                 writer.WriteHeader<Character>();
                 foreach (var c in characters)
